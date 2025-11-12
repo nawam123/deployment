@@ -4,8 +4,8 @@ services:
     # build: ./server
     container_name: server
     ports:
-      # - "4000:4000"
-    - "80:4000"
+      - "4000:4000"
+    # - "80:4000"
     networks:
       - fullstack-net
     restart: unless-stopped
