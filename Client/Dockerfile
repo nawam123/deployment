@@ -9,7 +9,11 @@ RUN npm install
 
 COPY . .
 
-RUN npm run  build
+# Accept build arg
+ARG VITE_API_URL
+ENV VITE_API_URL=$VITE_API_URL
+
+RUN npm run build
 
 # Production Stage
 FROM node:22
@@ -17,8 +21,6 @@ FROM node:22
 WORKDIR /app
 
 RUN npm i -g serve
-
-ENV PATH="/usr/local/bin:$PATH"
 
 COPY --from=build /app/dist ./dist
 
