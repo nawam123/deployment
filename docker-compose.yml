@@ -1,54 +1,22 @@
-# services:
-#   server:
-#     build: ./Server
-#     container_name: server
-#     ports:
-#       - "80:4000"  # Already mapped to 80
-#     networks:
-#       - fullstack-net
-#     restart: unless-stopped
-
-#  client:
-#     build:
-#       context: ./client
-#       args:
-#         - VITE_API_URL=http://38.137.5.56
-#     container_name: client
-#     ports:
-#       - "443:3000"
-#     networks:
-#       - fullstack-net
-#     depends_on:
-#       - server
-#     restart: unless-stopped
-
-# networks:
-#   fullstack-net:
-#     driver: bridge
-
-
-
-
 services:
   server:
     build: ./Server
+    # build: ./server
     container_name: server
     ports:
-      - "1580:4000"
+      - "4000:4000"
+    # - "80:4000"
     networks:
       - fullstack-net
     restart: unless-stopped
 
   client:
-    # 1. Change 'build: ./Client' to this 'build:' object
-    build:
-      context: ./Client
-      args:
-        # 2. Pass the public URL of your API
-        - VITE_API_URL=http://38.137.5.56:1580
+    # build: ./client
+    build: ./Client
     container_name: client
     ports:
       - "5173:3000"
+    # - "443:3000"
     networks:
       - fullstack-net
     depends_on:
@@ -58,3 +26,14 @@ services:
 networks:
   fullstack-net:
     driver: bridge
+
+
+
+
+
+    
+
+  
+
+
+
