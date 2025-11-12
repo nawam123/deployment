@@ -1,22 +1,22 @@
 services:
   server:
-    build: ./Server
-    # build: ./server
+    # build: ./Server
+    build: ./server
     container_name: server
     ports:
-      - "4000:4000"
-    # - "80:4000"
+      # - "4000:4000"
+    - "80:4000"
     networks:
       - fullstack-net
     restart: unless-stopped
 
   client:
-    # build: ./client
-    build: ./Client
+    build: ./client
+    # build: ./Client
     container_name: client
     ports:
-      - "5173:3000"
-    # - "443:3000"
+      # - "5173:3000"
+    - "443:3000"
     networks:
       - fullstack-net
     depends_on:
