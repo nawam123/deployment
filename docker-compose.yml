@@ -3,7 +3,7 @@ services:
     build: ./Server
     container_name: server
     ports:
-      - "1580:4000"
+      - "80:4000"  # Already mapped to 80
     networks:
       - fullstack-net
     restart: unless-stopped
@@ -12,10 +12,10 @@ services:
     build: 
       context: ./Client
       args:
-        - VITE_API_URL=http://38.137.5.56:1580
+        - VITE_API_URL=http://38.137.5.56  # Use port 80 (default HTTP)
     container_name: client
     ports:
-      - "5173:3000"
+      - "443:3000"  # Already mapped to 443
     networks:
       - fullstack-net
     depends_on:
