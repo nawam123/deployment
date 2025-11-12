@@ -1,18 +1,20 @@
 services:
   server:
-    build: ./Server          # Folder name where your server Dockerfile exists
+    build: ./Server
     container_name: server
     ports:
-      - "1580:4000"          # Host:Container → 1580 (public) → 4000 (inside container)
+      - "1580:4000"
     networks:
       - fullstack-net
     restart: unless-stopped
 
   client:
-    build: ./Client          # Folder name where your client Dockerfile exists
+    build: ./Client
     container_name: client
     ports:
-      - "5173:3000"          # Host:Container → 5173 (public) → 3000 (inside container)
+      - "5173:3000"
+    environment:
+      - VITE_API_URL=http://38.137.5.56:1580  # Public API endpoint
     networks:
       - fullstack-net
     depends_on:
