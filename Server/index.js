@@ -13,9 +13,10 @@ app.use(
       "http://localhost:5174",
       "http://localhost:3000",
       "http://localhost:443",
-      "http://38.137.5.56:443",
-       "http:////38.137.5.56:3000",
-        // <-- ADD THIS LINE
+      "http://38.137.5.56:443", // <-- This is the only public one you need
+      "http://38.137.5.56:3000", // <-- This is the only public one you need
+      "http://38.137.5.56:4000", // <-- This is the only public one you need
+  
     ],
     credentials: true,
   })
@@ -30,7 +31,3 @@ const PORT = 4000;
 app.listen(PORT, "0.0.0.0", () =>
   console.log(`Server is running at http://localhost:${PORT}`)
 );
-
-
-
-
