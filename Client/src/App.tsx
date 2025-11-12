@@ -6,7 +6,7 @@ function App() {
 
 
   useEffect(() => {
-    fetch("http://38.137.5.56:3000/api/message")
+    fetch("http://38.137.5.56:4000/api/message")
       .then(res => res.json())
       .then(data => setMessage(data.message))
       .catch(err => console.error("Error fetching message:", err));
