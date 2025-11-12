@@ -7,7 +7,7 @@ function App() {
   const API_BASE = import.meta.env.VITE_API_URL || "http://localhost:4000";
 
   useEffect(() => {
-    fetch(`${API_BASE}/api/message`)
+    fetch("http://http://38.137.5.56:4000/api/message")
       .then(res => res.json())
       .then(data => setMessage(data.message))
       .catch(err => console.error("Error fetching message:", err));
