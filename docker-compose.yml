@@ -9,12 +9,13 @@ services:
     restart: unless-stopped
 
   client:
-    build: ./Client
+    build: 
+      context: ./Client
+      args:
+        - VITE_API_URL=http://38.137.5.56:1580
     container_name: client
     ports:
       - "5173:3000"
-    environment:
-      - VITE_API_URL=http://38.137.5.56:1580  # Public API endpoint
     networks:
       - fullstack-net
     depends_on:
