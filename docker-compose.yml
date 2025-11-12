@@ -1,8 +1,6 @@
-version: "3.9"
-
 services:
   server:
-    build: ./server
+    build: ./Server
     container_name: server
     ports:
       - "4000:4000"
@@ -11,7 +9,7 @@ services:
     restart: unless-stopped
 
   client:
-    build: ./client
+    build: ./Client
     container_name: client
     ports:
       - "5173:3000"
@@ -23,4 +21,3 @@ services:
 
 networks:
   fullstack-net:
-    driver: bridge
